@@ -1,25 +1,24 @@
-
 .l-base {
-    min-width: 100vw;
-    max-width: 100vw;
-    min-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+
+  &__side {
+    width: 40%;
+    min-height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    &__side {
-        width: 40%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    &__content {
-        width: 100%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+  &__content {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

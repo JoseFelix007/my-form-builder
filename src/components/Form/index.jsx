@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
 import Card from "../Utils/Card";
+import { buildFormQuestion } from "./FormQuestion/FormQuestionBuilder";
 import './Form.scss';
-import { getFormQuestionByType } from "./Questions/Builder";
 
 const Form = () => {
   const [questions, setQuestions] = useState([]);
@@ -14,7 +14,7 @@ const Form = () => {
   const onDropQuestion = (ev) => {
     const type = ev.dataTransfer.getData("type");
     console.log("drop ", type);
-    const question = getFormQuestionByType(type);
+    const question = buildFormQuestion(type);
     setQuestions(questions.concat(question));
   };
 

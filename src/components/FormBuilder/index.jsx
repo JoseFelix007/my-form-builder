@@ -1,7 +1,7 @@
 import Card from "../Utils/Card";
-import { TextQuestion } from "./Questions/Types";
+import { TextQuestion } from "./FormBuilderQuestion/FormBuilderQuestionType";
 
-const Sidebar = () => {
+const FormBuilder = () => {
   return (
     <>
       <Card title="Basic fields">
@@ -11,4 +11,4 @@ const Sidebar = () => {
   );
 }
 
-export default Sidebar;
+export default FormBuilder;

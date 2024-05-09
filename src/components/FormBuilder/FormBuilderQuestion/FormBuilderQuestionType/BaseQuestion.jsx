@@ -1,6 +1,6 @@
-import './Question.scss';
+import './BaseQuestion.scss';
 
-const Question = ({ children, type }) => {
+const BaseQuestion = ({ children, type }) => {
   const onDragQuestion = (ev) => {
     console.log("drag");
     ev.dataTransfer.setData("type", type);
@@ -15,4 +15,4 @@ const Question = ({ children, type }) => {
   );
 }
 
-export default Question;
+export default BaseQuestion;

@@ -1,6 +1,6 @@
-import './Question.scss';
+import './BaseQuestion.scss';
 
-const Question = ({ children, label, code }) => {
+const BaseQuestion = ({ children, label, code }) => {
   return (
     <>
       <div id={`question_${code}`} className="c-form-question">
@@ -11,4 +11,4 @@ const Question = ({ children, label, code }) => {
   );
 }
 
-export default Question;
+export default BaseQuestion;

@@ -1,23 +1,23 @@
-
 .c-card {
-    background-color: white;
-    color: black;
-    border-radius: 10pt;
-    min-width: 50%;
+  background-color: white;
+  color: black;
+  border-radius: 10pt;
+  min-width: 50%;
+  box-shadow: 0px 10px 20px -18px;
 
-    &__title {
-        margin: 1rem;
-        font-weight: 500;
-    }
+  &__title {
+    margin: 1rem;
+    font-weight: 500;
+  }
 
-    &__sep {
-        border: 0;
-        height: 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
+  &__sep {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
 
-    &__body {
-        margin: 1rem;
-    }
+  &__body {
+    margin: 1rem;
+  }
 }
