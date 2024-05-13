@@ -18,14 +18,18 @@ const Form = () => {
     setQuestions(questions.concat(question));
   };
 
+  const onDeleteQuestion = (index) => {
+    setQuestions(questions.filter((q, idx) => idx !== index));
+  }
+
   return (
     <>
       <Card>
         <div className='form' onDrop={onDropQuestion} onDragOver={allowDrop}>
-          { 
-            questions.length > 0 ? 
-            questions.map((Question, key) =>  <Question key={key} index={key}/>) :
-            <p className='message'>Suelta aquí las preguntas que desees</p>
+          {
+            questions.length > 0 ?
+              questions.map((Question, key) => <Question key={key} index={key} onDelete={onDeleteQuestion}/>) :
+              <span className='message'>Suelta aquí las preguntas que desees</span>
           }
         </div>
       </Card>
