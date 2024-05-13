@@ -22,7 +22,11 @@ const Form = () => {
     <>
       <Card>
         <div className='form' onDrop={onDropQuestion} onDragOver={allowDrop}>
-          { questions.map((Question, key) =>  <Question key={key} index={key}/>) }
+          { 
+            questions.length > 0 ? 
+            questions.map((Question, key) =>  <Question key={key} index={key}/>) :
+            <p className='message'>Suelta aquí las preguntas que desees</p>
+          }
         </div>
       </Card>
     </>

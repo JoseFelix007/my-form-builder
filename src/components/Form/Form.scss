@@ -1,4 +1,12 @@
 .form {
   width: 100%;
   min-height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  align-self: center;
+  justify-self: center;
+  color: #969696;
 }
