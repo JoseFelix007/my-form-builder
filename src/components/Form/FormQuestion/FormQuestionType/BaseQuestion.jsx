@@ -1,12 +1,27 @@
+import { useState } from "react";
 import { LiaEditSolid } from "react-icons/lia";
-import { MdOutlineDeleteSweep } from "react-icons/md";
+import { MdOutlineDeleteSweep, MdOutlineClose } from "react-icons/md";
 
 import './BaseQuestion.scss';
 
+const MODES = {
+  normal: 'normal',
+  editable: 'editable'
+};
+
 const BaseQuestion = ({ children, label, index, code, onEdit = () => {}, onDelete = () => {} }) => {
+  const [mode, setMode] = useState(MODES.normal);
+  const [vLabel, setLabel] = useState(label);
+
   const handleOnEdit = () => {
-    console.log("onEdit");
+    setMode(MODES.editable);
+    console.log("onEdit", mode);
     onEdit();
+  }
+
+  const handleCloseEdit = () => {
+    setMode(MODES.normal);
+    console.log("closeEdit", mode);
   }
 
   const handleOnDelete = () => {
@@ -18,11 +33,13 @@ const BaseQuestion = ({ children, label, index, code, onEdit = () => {}, onDelet
     <>
       <div id={`question_${code}`} className="c-form-question">
         <span className='c-form-question--actions'>
-          <LiaEditSolid onClick={handleOnEdit} className="icon" size={'1.5rem'} />
+          { mode == MODES.normal ? <LiaEditSolid onClick={handleOnEdit} className="icon" size={'1.5rem'} /> : '' }
+          { mode == MODES.editable ? <MdOutlineClose onClick={handleCloseEdit} className="icon" size={'1.5rem'} /> : '' }
           <MdOutlineDeleteSweep onClick={handleOnDelete} className="icon" size={'1.5rem'} />
         </span>
-        <label htmlFor={code}>{ label }</label>
-        { children ? children : 'Basic Field' }
+        { mode == MODES.normal ? <label htmlFor={code}>{ vLabel }</label> : '' }
+        { mode == MODES.editable ? <input className="label" type="text" name="label" id="label" value={vLabel} onChange={e => setLabel(e.target.value)}  /> : '' }
+        { children ? children : '' }
       </div>
     </>
   );

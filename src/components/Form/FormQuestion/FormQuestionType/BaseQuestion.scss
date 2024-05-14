@@ -4,9 +4,16 @@
   margin: 1rem 0;
   position: relative;
 
-  & label {
+  & label, .label {
+    width: 50%;
+    font-size: 1rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
+  }
+
+  & .label {
+    padding: 2px;
+    font-size: calc(1rem - 1px);
   }
 
   &--text {
