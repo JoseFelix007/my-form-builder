@@ -1,6 +1,18 @@
 .c-question {
-  border: 1pt solid rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  border: 1pt solid #ccc;
   border-radius: 5pt;
   padding: 0.5rem;
   font-size: 0.9rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &--icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0.5rem;
+  }
 }

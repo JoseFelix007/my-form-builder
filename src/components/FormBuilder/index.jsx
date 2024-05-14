@@ -4,7 +4,7 @@ import { TextQuestion } from "./FormBuilderQuestion/FormBuilderQuestionType";
 const FormBuilder = () => {
   return (
     <>
-      <Card title="Basic fields">
+      <Card title="Preguntas básicas">
         <TextQuestion />
       </Card>
     </>
