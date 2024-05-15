@@ -1,10 +1,18 @@
 import { TextQuestion } from "./FormQuestionType";
 
 export const buildFormQuestion = (type) => {
+  const question = {
+    type: type,
+    component: null
+  };
+
   switch (type) {
     case 'text':
-      return TextQuestion;
+      question.component = TextQuestion;
+      break;
     default:
-      return null;
+      break;
   }
+
+  return question;
 };

@@ -3,6 +3,43 @@
   min-height: 50px;
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  &-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .drop-area {
+      margin-left: 1rem;
+      max-width: 50px;
+      min-width: 50px;
+      max-height: 50px;
+      min-height: 50px;
+    }
+  }
+}
+
+.drop-area {
+  min-height: 50px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  
+  border-width: 2pt;
+  border-radius: 5pt;
+  border-color: #969696;
+  border-style: dashed;
+
+  &--on-drag {
+    border-color: #5b5fc7;
+
+    .message {
+      color: #5b5fc7;
+    }
+  }
 }
 
 .message {
@@ -10,4 +47,5 @@
   align-self: center;
   justify-self: center;
   color: #969696;
+  pointer-events: none;
 }

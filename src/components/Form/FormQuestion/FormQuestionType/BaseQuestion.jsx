@@ -9,7 +9,7 @@ const MODES = {
   editable: 'editable'
 };
 
-const BaseQuestion = ({ children, label, index, code, onEdit = () => {}, onDelete = () => {} }) => {
+const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = () => {}, onDelete = () => {} }) => {
   const [mode, setMode] = useState(MODES.normal);
   const [vLabel, setLabel] = useState(label);
 
@@ -26,7 +26,7 @@ const BaseQuestion = ({ children, label, index, code, onEdit = () => {}, onDelet
 
   const handleOnDelete = () => {
     console.log("onDelete");
-    onDelete(index);
+    onDelete(row_index, col_index);
   }
 
   return (
