@@ -5,14 +5,14 @@
   margin: 1rem 0.5rem;
   position: relative;
 
-  & label, .label {
+  &--label, &--label--input {
     width: 50%;
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
   }
 
-  & .label {
+  &--label--input {
     padding: 2px;
     font-size: calc(1rem - 1px);
   }
@@ -40,6 +40,36 @@
     }
   }
 
+  &--options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &--radio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input[type="radio"] {
+      margin: 0.3rem;
+    }
+
+    &--new {
+      cursor: pointer;
+    }
+
+    &--new input[type="text"] {
+      border: none;
+      background: transparent;
+      pointer-events: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   &--actions {
     position: absolute;
     top: 0;
@@ -54,4 +84,8 @@
       }
     }
   }
+}
+
+.close {
+  cursor: pointer;
 }

@@ -4,23 +4,22 @@ import { MdOutlineDeleteSweep, MdOutlineClose } from "react-icons/md";
 
 import './BaseQuestion.scss';
 
-const MODES = {
-  normal: 'normal',
-  editable: 'editable'
-};
+import MODES from "./Enums/Modes";
 
-const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = () => {}, onDelete = () => {} }) => {
+const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = () => {}, onDelete = () => {}, onMessageChange = () => {} }) => {
   const [mode, setMode] = useState(MODES.normal);
   const [vLabel, setLabel] = useState(label);
 
   const handleOnEdit = () => {
     setMode(MODES.editable);
+    onMessageChange(MODES.editable);
     console.log("onEdit", mode);
     onEdit();
   }
 
   const handleCloseEdit = () => {
     setMode(MODES.normal);
+    onMessageChange(MODES.normal);
     console.log("closeEdit", mode);
   }
 
@@ -37,8 +36,8 @@ const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = ()
           { mode == MODES.editable ? <MdOutlineClose onClick={handleCloseEdit} className="icon" size={'1.5rem'} /> : '' }
           <MdOutlineDeleteSweep onClick={handleOnDelete} className="icon" size={'1.5rem'} />
         </span>
-        { mode == MODES.normal ? <label htmlFor={code}>{ vLabel }</label> : '' }
-        { mode == MODES.editable ? <input className="label" type="text" name="label" id="label" value={vLabel} onChange={e => setLabel(e.target.value)}  /> : '' }
+        { mode == MODES.normal ? <label className="c-form-question--label" htmlFor={code}>{ vLabel }</label> : '' }
+        { mode == MODES.editable ? <input className="c-form-question--label--input" type="text" name="label" id="label" value={vLabel} onChange={e => setLabel(e.target.value)}  /> : '' }
         { children ? children : '' }
       </div>
     </>

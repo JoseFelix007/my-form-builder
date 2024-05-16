@@ -1,11 +1,12 @@
 import Card from "../Utils/Card";
-import { TextQuestion } from "./FormBuilderQuestion/FormBuilderQuestionType";
+import { TextQuestion, RadioQuestion } from "./FormBuilderQuestion/FormBuilderQuestionType";
 
 const FormBuilder = () => {
   return (
     <>
       <Card title="Preguntas básicas">
         <TextQuestion />
+        <RadioQuestion />
       </Card>
     </>
   );

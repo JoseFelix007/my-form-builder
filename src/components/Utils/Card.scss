@@ -19,5 +19,8 @@
 
   &__body {
     margin: 1rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
   }
 }
