@@ -41,25 +41,25 @@ const RadioQuestion = ({ row_index, col_index, label = 'Pregunta Tipo Radio', on
 
   return (
     <BaseQuestion row_index={row_index} col_index={col_index} code={code} label={label} onEdit={onEdit} onDelete={onDelete} onModeChange={onModeChange}>
-      <div className="c-form-question--options">
+      <div className="c-f-question--options | flex-col">
       { options.length > 0 && options.map((option, idx) => 
         (
-          <div key={idx} className="c-form-question--radio" >
-            <input type="radio" value={option} id={`opt_${idx}`} disabled/>
+          <div key={idx} className="c-f-question--option | flex-row align-center" >
+            <input className="c-radio" type="radio" value={option} id={`opt_${idx}`} disabled/>
             { normal ? <label htmlFor={`opt_${idx}`}>{ option }</label> : '' }
             { editable ? (
               <>
-                <input type="text" value={option} id={`opt_${idx}`} onChange={e => onOptionChange(e.target.value, idx)}/>
-                <MdOutlineClose className="icon close" size={'1.5rem'} onClick={() => onDeleteOption(idx)} />
+                <input className="c-input" type="text" value={option} id={`opt_${idx}`} onChange={e => onOptionChange(e.target.value, idx)}/>
+                <MdOutlineClose className="c-icon" size={'1.5rem'} onClick={() => onDeleteOption(idx)} />
               </>
             ) : '' }
           </div>
         )
       ) }
       { editable ? 
-          <div className="c-form-question--radio c-form-question--radio--new" onClick={onAddOption}>
-            <input type="radio" value="" id={`opt_radio_add`} disabled/>
-            <input type="text" value="Añadir opcion" id={`opt_add`} disabled  /> 
+          <div className="flex-row align-center" >
+            <input className="c-radio" type="radio" value="" id={`opt_radio_add`} disabled/>
+            <input className="c-button cursor-pointer" type="button" value="Añadir opcion" id={`opt_add`} onClick={onAddOption} /> 
           </div>
         : '' }
       </div>
