@@ -13,7 +13,7 @@ const RadioQuestion = ({ row_index, col_index, label = 'Pregunta Tipo Radio', on
     // onEdit();
   }
 
-  const onMessageChange = (value) => {
+  const onModeChange = (value) => {
     setMode(value);
     console.log("value : ", mode);
   }
@@ -40,7 +40,7 @@ const RadioQuestion = ({ row_index, col_index, label = 'Pregunta Tipo Radio', on
   const editable = mode == MODES.editable;
 
   return (
-    <BaseQuestion row_index={row_index} col_index={col_index} code={code} label={label} onEdit={onEdit} onDelete={onDelete} onMessageChange={onMessageChange}>
+    <BaseQuestion row_index={row_index} col_index={col_index} code={code} label={label} onEdit={onEdit} onDelete={onDelete} onModeChange={onModeChange}>
       <div className="c-form-question--options">
       { options.length > 0 && options.map((option, idx) => 
         (

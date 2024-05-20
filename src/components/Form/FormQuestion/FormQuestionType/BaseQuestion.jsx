@@ -6,20 +6,20 @@ import './BaseQuestion.scss';
 
 import MODES from "./Enums/Modes";
 
-const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = () => {}, onDelete = () => {}, onMessageChange = () => {} }) => {
+const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = () => {}, onDelete = () => {}, onModeChange = () => {} }) => {
   const [mode, setMode] = useState(MODES.normal);
   const [vLabel, setLabel] = useState(label);
 
   const handleOnEdit = () => {
     setMode(MODES.editable);
-    onMessageChange(MODES.editable);
+    onModeChange(MODES.editable);
     console.log("onEdit", mode);
     onEdit();
   }
 
   const handleCloseEdit = () => {
     setMode(MODES.normal);
-    onMessageChange(MODES.normal);
+    onModeChange(MODES.normal);
     console.log("closeEdit", mode);
   }
 
