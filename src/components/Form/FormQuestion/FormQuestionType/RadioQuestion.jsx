@@ -3,8 +3,8 @@ import BaseQuestion from "./BaseQuestion";
 import MODES from "./Enums/Modes";
 import { MdOutlineClose } from "react-icons/md";
 
-const RadioQuestion = ({ row_index, col_index, label = 'Pregunta Tipo Radio', onDelete = () => {} }) => {
-  const code = `text_${row_index}_${col_index}`;
+const RadioQuestion = ({ index, label = 'Pregunta Tipo Radio', onDelete = () => {} }) => {
+  const code = `radio_${index}`;
 
   const [mode, setMode] = useState(MODES.normal);
   const [options, setOptions] = useState(["opcion 1"]);
@@ -40,7 +40,7 @@ const RadioQuestion = ({ row_index, col_index, label = 'Pregunta Tipo Radio', on
   const editable = mode == MODES.editable;
 
   return (
-    <BaseQuestion row_index={row_index} col_index={col_index} code={code} label={label} onEdit={onEdit} onDelete={onDelete} onModeChange={onModeChange}>
+    <BaseQuestion index={index} code={code} label={label} onEdit={onEdit} onDelete={onDelete} onModeChange={onModeChange}>
       <div className="c-f-question--options | flex-col">
       { options.length > 0 && options.map((option, idx) => 
         (

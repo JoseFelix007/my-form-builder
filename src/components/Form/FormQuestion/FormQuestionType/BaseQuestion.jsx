@@ -8,7 +8,7 @@ import './styles/Utils.scss';
 
 import MODES from "./Enums/Modes";
 
-const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = () => {}, onDelete = () => {}, onModeChange = () => {} }) => {
+const BaseQuestion = ({ children, index, label, code, onEdit = () => {}, onDelete = () => {}, onModeChange = () => {} }) => {
   const [mode, setMode] = useState(MODES.normal);
   const [vLabel, setLabel] = useState(label);
 
@@ -27,7 +27,7 @@ const BaseQuestion = ({ children, row_index, col_index, label, code, onEdit = ()
 
   const handleOnDelete = () => {
     console.log("onDelete");
-    onDelete(row_index, col_index);
+    onDelete(index);
   }
 
   return (
