@@ -1,6 +1,9 @@
 .c-f-question {
-  width: 100%;
-  margin: 1rem 0.5rem;
+  margin: 1rem 0;
+  background-color: #fcfcfc;
+  padding: 0.5rem;
+  border-radius: 5pt;
+  box-sizing: border-box;
 
   &--actions {
     top: 0;
@@ -13,7 +16,6 @@
     line-height: 40px;
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 0.5rem;
     padding:  .15rem .5rem;
   }
 
@@ -23,6 +25,25 @@
 
   &--new-option {
     cursor: pointer;
+  }
+
+  &--drop {
+    // background: #5b5fc7;
+    height: 1rem;
+    border-radius: 5pt;
+
+    border-width: 2pt;
+    border-radius: 5pt;
+    border-color: #969696;
+    border-style: dashed;
+
+    &--on-drag {
+      border-color: #5b5fc7;
+  
+      .message {
+        color: #5b5fc7;
+      }
+    }
   }
 }
 

@@ -3,7 +3,7 @@ import BaseQuestion from "./BaseQuestion";
 import MODES from "./Enums/Modes";
 import { MdOutlineClose } from "react-icons/md";
 
-const RadioQuestion = ({ index, label = 'Pregunta Tipo Radio', onDelete = () => {} }) => {
+const RadioQuestion = ({ innerRef, index, label = 'Pregunta Tipo Radio', onDelete = () => {}, ...otherProps }) => {
   const code = `radio_${index}`;
 
   const [mode, setMode] = useState(MODES.normal);
@@ -40,7 +40,7 @@ const RadioQuestion = ({ index, label = 'Pregunta Tipo Radio', onDelete = () => 
   const editable = mode == MODES.editable;
 
   return (
-    <BaseQuestion index={index} code={code} label={label} onEdit={onEdit} onDelete={onDelete} onModeChange={onModeChange}>
+    <BaseQuestion innerRef={innerRef} index={index} code={code} label={label} onEdit={onEdit} onDelete={onDelete} onModeChange={onModeChange} {...otherProps}>
       <div className="c-f-question--options | flex-col">
       { options.length > 0 && options.map((option, idx) => 
         (

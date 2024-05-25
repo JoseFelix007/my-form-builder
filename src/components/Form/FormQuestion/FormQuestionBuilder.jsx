@@ -1,7 +1,8 @@
 import { TextQuestion, RadioQuestion } from "./FormQuestionType";
 
-export const buildFormQuestion = (type) => {
+export const buildFormQuestion = (id, type) => {
   const question = {
+    id: id,
     type: type,
     component: null
   };
