@@ -1,9 +1,5 @@
 .c-f-question {
-  margin: 1rem 0;
-  background-color: #fcfcfc;
   padding: 0.5rem;
-  border-radius: 5pt;
-  box-sizing: border-box;
 
   &--actions {
     top: 0;
@@ -25,25 +21,6 @@
 
   &--new-option {
     cursor: pointer;
-  }
-
-  &--drop {
-    // background: #5b5fc7;
-    height: 1rem;
-    border-radius: 5pt;
-
-    border-width: 2pt;
-    border-radius: 5pt;
-    border-color: #969696;
-    border-style: dashed;
-
-    &--on-drag {
-      border-color: #5b5fc7;
-  
-      .message {
-        color: #5b5fc7;
-      }
-    }
   }
 }
 

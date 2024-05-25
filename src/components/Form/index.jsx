@@ -2,7 +2,8 @@
 import { useState } from 'react';
 import Card from "../Utils/Card";
 import { buildFormQuestion } from "./FormQuestion/FormQuestionBuilder";
-import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import FormQuestionList from './FormQuestion/FormQuestionList';
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import './styles/Form.scss';
 
 const Form = () => {
@@ -28,8 +29,8 @@ const Form = () => {
     setformQuestions(newFormQuestions);
   }
 
-  const addQuestionToCol = (ev) => {
-    console.log("drop col");
+  const addQuestion = (ev) => {
+    console.log("drop");
     const type = ev.dataTransfer.getData("type");
     const questionId = `question_${type}_${formQuestions.length}`;
     const question = buildFormQuestion(questionId, type);
@@ -58,26 +59,10 @@ const Form = () => {
       <Card>
         <Droppable droppableId='form'>
           { (provided) => (
-            <div className='form | relative flex-col gap-1 w-full' ref={provided.innerRef} {...provided.droppableProps} >
-              {
-                formQuestions.length > 0 &&
-                formQuestions.map((question, index) => {
-                  const Component = question.component;
-                  return Component ? (
-                    <Draggable draggableId={question.id} index={index} key={question.id}>
-                      { (provided_2) => (
-                        <Component index={index} onDelete={(index) => onDeleteQuestion(index)} innerRef={provided_2.innerRef} {...provided_2.draggableProps} {...provided_2.dragHandleProps} />
-                        )
-                      }
-                    </Draggable>
-                  ) : '';
-                })
-              }
-              {provided.placeholder}
-            </div>
+            <FormQuestionList innerRef={provided.innerRef} formQuestions={formQuestions} onDeleteQuestion={onDeleteQuestion} placeholder={provided.placeholder} {...provided.droppableProps}/>
           )}
         </Droppable>
-        <div className='drop-area' onDrop={addQuestionToCol} onDragOver={allowDrop} onDragEnter={onDragEnter} onDragLeave={onDragLeave}>
+        <div className='drop-area' onDrop={addQuestion} onDragOver={allowDrop} onDragEnter={onDragEnter} onDragLeave={onDragLeave}>
           <span className='message'>+ Suelta aquí las preguntas que desees</span>
         </div>
       </Card>
