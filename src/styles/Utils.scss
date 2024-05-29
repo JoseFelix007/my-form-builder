@@ -61,3 +61,34 @@
     cursor: -webkit-grabbing;
   }
 }
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.max-h-70 {
+  max-height: 70vh;
+}
+
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+    border: 2px solid var(--sb-track-color);
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .scrollbar {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
