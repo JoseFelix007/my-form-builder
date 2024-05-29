@@ -31,15 +31,17 @@ const BaseQuestion = ({ children, index, label, code, onEdit = () => {}, onDelet
   }
 
   return (
-    <div ref={question} className="c-f-question | relative flex-col gap w-full">
-      <span className='c-f-question--actions | absolute'>
+    <div ref={question} className="c-f-question | relative flex-row gap w-full">
+      <div className="c-f-question--content | flex-col gap w-full">
+        { mode == MODES.normal ? <label className="c-f-question--label" htmlFor={code}>{ vLabel }</label> : '' }
+        { mode == MODES.editable ? <input className="c-f-question--label c-input" type="text" name="label" id="label" value={vLabel} onChange={e => setLabel(e.target.value)}  /> : '' }
+        { children ? children : '' }
+      </div>
+      <div className="c-f-question--actions | flex-col align-center">
         { mode == MODES.normal ? <LiaEditSolid onClick={handleOnEdit} className="c-icon" size={'1.5rem'} /> : '' }
         { mode == MODES.editable ? <MdOutlineClose onClick={handleCloseEdit} className="c-icon" size={'1.5rem'} /> : '' }
         <MdOutlineDeleteSweep onClick={handleOnDelete} className="c-icon" size={'1.5rem'} />
-      </span>
-      { mode == MODES.normal ? <label className="c-f-question--label" htmlFor={code}>{ vLabel }</label> : '' }
-      { mode == MODES.editable ? <input className="c-f-question--label c-input" type="text" name="label" id="label" value={vLabel} onChange={e => setLabel(e.target.value)}  /> : '' }
-      { children ? children : '' }
+      </div>
     </div>
   );
 }
